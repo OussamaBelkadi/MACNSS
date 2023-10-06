@@ -1,5 +1,8 @@
 package ma.yc.Mapper;
 
+import ma.yc.dto.CompanyDto;
+import ma.yc.model.Company;
+
 import java.sql.PreparedStatement;
 
 public interface Mapper<D,E> {

@@ -25,6 +25,8 @@ public class MainAdministeurGUI implements DisplayGUI{
     AgentService agentService ;
     boolean isAuthentificated = false;
     private  AgentDto agentDto;
+
+
     public MainAdministeurGUI() {
         this.agentService = new AgentServiceImpl();
         this.adminService = new AdminServiceImpl();

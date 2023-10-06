@@ -1,8 +1,6 @@
 package ma.yc.GUI;
 
 import ma.yc.core.Print;
-import ma.yc.core.Util;
-import ma.yc.dto.DossierDto;
 import ma.yc.service.impl.DossierServiceImpl;
 
 import java.util.HashMap;
@@ -19,6 +17,7 @@ public class MainGUI  implements  DisplayGUI{
         this.options.put(1, new MainAdministeurGUI());
         this.options.put(2, new MainAgentGUI());
         this.options.put(3, new MainPaitentGUI());
+        this.options.put(4, new MainCompanyGUI());
     }
 
 
@@ -28,11 +27,12 @@ public class MainGUI  implements  DisplayGUI{
         Print.log("1 - are you an admin ? ");
         Print.log("2 - are you an agent ? ");
         Print.log("3 - are you a patient ? ");
+        Print.log("4 - are you a company ? ");
 
         Print.log("0 - Exit ");
 
         int choice = scanner.nextInt();
-        if (choice == 0 || choice > 3){
+        if (choice == 0 || choice > 4){
             Print.log("your choice is not correct");
             System.exit(0);
             return 0;

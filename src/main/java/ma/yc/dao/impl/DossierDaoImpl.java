@@ -62,7 +62,7 @@ public class DossierDaoImpl implements DossierDao {
             int isSaved = statement.executeUpdate();
             // : check if the dossier get saved ;
             if(isSaved ==1){
-                // : if the type douc not null it will be inserted to database
+            //: if the type douc not null it will be inserted to database
                 this.insertFicher(dossier);
                 // : if the dossier has medicament it will be inserted to database
                 if (dossier.getMedicaments().size()>0 || dossier.getMedicaments() != null){

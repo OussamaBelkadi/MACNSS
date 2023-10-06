@@ -6,6 +6,7 @@ import ma.yc.core.Util;
 import ma.yc.dao.PatientDao;
 import ma.yc.dto.DossierDto;
 import ma.yc.dto.PatientDto;
+import ma.yc.model.Patient;
 import ma.yc.service.PatientService;
 import ma.yc.service.impl.PatientServiceImpl;
 
@@ -55,6 +56,7 @@ public class MainPaitentGUI implements DisplayGUI{
         Print.log("\t\t 1 - Consult your dossier by num_dossier ");
         Print.log("\t\t 2 - Consult all dossiers ");
         Print.log("\t\t 3 - Go back to the main menu ");
+        Print.log("\t\t 4- Voir le salaire de retraite ");
         Print.log("\t\t 0 - Exit ");
         int choice = scanner.nextInt();
         scanner = new Scanner(System.in);
@@ -89,6 +91,8 @@ public class MainPaitentGUI implements DisplayGUI{
                 Print.log("Go back to the main menu");
                 new MainGUI().displayMainOptions(scanner);
                 break;
+            case 4:
+                this.displaySalary(scanner);
             case 0:
                 //exit
                 return -1;
@@ -100,5 +104,20 @@ public class MainPaitentGUI implements DisplayGUI{
 
     }
 
+    public void displaySalary(Scanner scanner){
+        Print.log("veuillew entrer votre identifient:");
+        String matricule = scanner.nextLine();
+        patientDto.matricule = matricule;
+        Double salaire = this.patientService.calculeSalary(patientDto);
+        if (salaire != 0){
+            List<Patient> patients = this.patientService.desplayPatient(patientDto);
+            System.out.println("Nom: " + patients.get(1)+" "+ patients.get(2)+" "+ patients.get(3)+" "+patients.get(4)+" "+patients.get(5));
+        }else {
+            System.out.println("Vous ne pouvez pas benificier du retraite");
+            List<Patient> patients = this.patientService.desplayPatient(patientDto);
+            System.out.println("Nom: " + patients.get(1)+" "+ patients.get(2)+" "+ patients.get(3)+" "+patients.get(4)+" "+patients.get(5));
+
+        }
+    }
 
 }
